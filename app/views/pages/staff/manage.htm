@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-12 col-lg-9">
+
+
+        <div class="card">
+            <div class="widget invert widget--items-middle">
+                <div class="widget__icon_layer widget__icon_layer--right">
+                    <span class="li-folder-user"></span>
+                </div>
+                <div class="widget__container">
+                    <div class="widget__line">
+                        <div class="widget__icon">
+                            <span class="li-folder-user"></span>
+                        </div>
+                        <div class="widget__title">Staff List</div>
+                        <div class="widget__subtitle"></div>
+                    </div>
+                    <div class="widget__box">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table table-indent-rows margin-bottom-0">
+                        <thead>
+                            <tr>
+                                <th width="100">
+                                    <div class="form-check">
+                                        <label class="form-check-label">#</label>
+                                    </div>
+                                </th>
+                                <th>Name</th>
+                                <th >Email</th>
+                                <th width="200">Contact number</th>
+                                <th width="150">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <repeat group="{{ @staff.data }}" key="{{@key}}" value="{{ @company }}" counter="{{@count}}">
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <label class="form-check-label">{{@count}}</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong><a href="{{@BASE}}/staff/{{@company.id}}">{{@company.names}}</a></strong>
+                                    </td>
+                                    <td>{{@company.email}}</td>
+                                    <td>{{@company.phone}}</td>
+                                    <td>
+                                        <div class="btn {{@company.status=='ACTIVE'?'btn-outline-success':'btn-outline-danger'}} btn-block disabled btn-sm">{{@company.status}}</div>
+                                    </td>
+                                </tr>
+                            </repeat>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <include href="includes/pagination.html" with="data={{@staff}}, url=/staff" />
+            </div>
+        </div>
+
+    </div>
+</div>
