@@ -23,7 +23,7 @@ class Controller extends \Prefab{
 	}
  	
     function afterRoute() {
-    	echo Template::instance()->render('body.html');
+    	echo Template::instance()->render('console.html');
     }
  
     function __construct() {

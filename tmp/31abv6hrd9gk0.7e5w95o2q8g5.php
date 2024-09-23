@@ -46,6 +46,6 @@
         <body>
 
             <div class="main-container">
-                <?php echo $this->render('includes/menus.html',NULL,get_defined_vars(),0); ?>
+                <?php echo $this->render('includes/console/menus.html',NULL,get_defined_vars(),0); ?>
                 
         

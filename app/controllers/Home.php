@@ -20,6 +20,15 @@ class Home extends Controller{
             $JwtController->setTTL($f3->get("JWT_TTL"));
             // var_dump($f3->get('SESSION.account'));exit;
             if ($f3->exists('SESSION.user_id') && $f3->get('SESSION.account')=='ADMIN') {
+                $user = $self->db->DBSelect("admin", array('id'=>$f3->get('SESSION.user_id')))->first();
+                if($user) {
+                    $f3->set('USER',$user);
+                    $token =$JwtController->encode($signature);
+                    $f3->set('SESSION.token', $token);
+                    return true;
+                }
+            }
+            if ($f3->exists('SESSION.user_id') && $f3->get('SESSION.account')=='USER') {
                 $user = $self->db->DBSelect("users", array('id'=>$f3->get('SESSION.user_id')))->first();
                 if($user) {
                     $f3->set('USER',$user);
@@ -33,11 +42,47 @@ class Home extends Controller{
         return false;
     }
 
+    public function validate(\Base $f3, $params){
+        if ($f3->exists('POST.id')) {
+            sleep(3);
+            if(!$f3->exists('SESSION') || !$f3->exists('SESSION.USER')){
+
+                $payload=[
+                    "status"=>false,
+                    "message"=>"User already logged out."
+                ];
+                $this->Response(200, $payload);exit;
+            }else{
+                $user=$f3->get('SESSION.USER');
+                if($user["id"] != $f3->get('POST.id')){
+                    $payload=[
+                        "status"=>false,
+                        "message"=>"User already logged out."
+                    ];
+                    $this->Response(200, $payload);exit;
+                }
+
+                if($user["isDefault"] == 'YES'){
+                    $payload=[
+                        "status"=>false,
+                        "message"=>"Kindly change your password."
+                    ];
+                    $this->Response(200, $payload);exit;
+                }
+                $payload=[
+                    "status"=>true,
+                    "message"=>"User still login."
+                ];
+                $this->Response(200, $payload);exit;
+            }
+        }
+    }
+
     public function admin_login($f3,$params) {
         // var_dump($params);exit;
         if ($f3->exists('POST.email') && $f3->exists('POST.password')) {
             sleep(3); // login should take a while to kick-ass brute force attacks
-            $user = $this->db->DBSelect("users", array('email'=>$f3->get('POST.email')))->first();
+            $user = $this->db->DBSelect("admin", array('email'=>$f3->get('POST.email')))->first();
             // var_dump($user);exit;
             if ($user) {
                 // check hash engine
@@ -48,6 +93,7 @@ class Home extends Controller{
                 } elseif($hash_engine == 'md5') {
                     $valid = (md5($f3->get('POST.password').$f3->get('password_md5_salt')) == $user->password);
                 }
+                
                 if($valid) {
                     @$f3->clear('SESSION');
                     $f3->set('SESSION.user_id',$user->id);
@@ -67,18 +113,19 @@ class Home extends Controller{
                     $f3->set('SESSION.account', 'ADMIN');
                     if($f3->get('CONFIG.ssl_backend'))
                         $f3->reroute($f3->get('PROTOCOL').$f3->get('HOST').$f3->get('BASE').'/');
-                    else $f3->reroute('/');
+                    else $f3->reroute('/console');
                 }else{
-                    \Flash::instance()->addMessage('Invalid Password', 'danger');
+                    \Flash::instance()->addMessage('Invalid password', 'danger');
                 }
             }else{
-                \Flash::instance()->addMessage('Invalid Email address', 'danger');
+                \Flash::instance()->addMessage('Invalid email address', 'danger');
             }
         }
         $f3->set('form.action', 'admin');
         echo Template::instance()->render('auth/login.html');die();
         // $this->f3->set('template','auth/login.html');
     }
+
     public function admin_invitation(\Base $f3, $params){
         $id=$params["id"];
         $f3->set("id", $id);
@@ -118,52 +165,6 @@ class Home extends Controller{
         }
         
         echo Template::instance()->render('auth/invitation.html');die();
-    }
-
-    public function validate(\Base $f3, $params){
-        if ($f3->exists('POST.id')) {
-            sleep(3);
-            if(!$f3->exists('SESSION') || !$f3->exists('SESSION.USER')){
-
-                $payload=[
-                    "status"=>false,
-                    "message"=>"User already logged out."
-                ];
-                $this->Response(200, $payload);exit;
-            }else{
-                $user=$f3->get('SESSION.USER');
-                if($user["id"] != $f3->get('POST.id')){
-                    $payload=[
-                        "status"=>false,
-                        "message"=>"User already logged out."
-                    ];
-                    $this->Response(200, $payload);exit;
-                }
-
-                if($user["isDefault"] == 'YES'){
-                    $payload=[
-                        "status"=>false,
-                        "message"=>"Kindly change your password."
-                    ];
-                    $this->Response(200, $payload);exit;
-                }
-                $payload=[
-                    "status"=>true,
-                    "message"=>"User still login."
-                ];
-                $this->Response(200, $payload);exit;
-            }
-        }
-    }
-    public function logout($f3,$params) {
-        $user=$f3->get('SESSION.account');
-        $f3->clear('SESSION');
-        if($user=='USER'){
-            $f3->reroute($f3->get('HOME')); //$f3->get('PROTOCOL').$f3->get('HOST')
-        }else{
-            $f3->reroute($f3->get('PROTOCOL').$f3->get('HOST').$f3->get('BASE').'/'.strtolower($user));
-        }
-        
     }
 
     public function admin_reset($f3, $params) {
@@ -247,8 +248,15 @@ class Home extends Controller{
         echo Template::instance()->render('auth/change.html');die();
         // $this->f3->set('template','auth/login.html');
     }
-
-  
+        
+    public function logout($f3,$params) {
+        $user=$f3->get('SESSION.account');
+        $f3->clear('SESSION');
+        if($user=='USER'){
+            $f3->reroute($f3->get('HOME')); //$f3->get('PROTOCOL').$f3->get('HOST')
+        }else{
+            $f3->reroute($f3->get('PROTOCOL').$f3->get('HOST').$f3->get('BASE').'/'.strtolower($user));
+        }
+        
+    }
 }
-
-// type=candidacy post=

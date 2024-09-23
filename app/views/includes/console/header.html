@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title><?= ($business) ?></title>
+        <title>{{@business}}</title>
 
         <!-- META SECTION -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -12,18 +12,18 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- END META SECTION -->
         <!-- CSS INCLUDE -->        
-        <!-- <link rel="stylesheet" href="<?= ($BASE) ?>/<?= ($ASSETS) ?>/css/bootstrap.min.css"> -->
+        <!-- <link rel="stylesheet" href="{{@BASE}}/{{@ASSETS}}/css/bootstrap.min.css"> -->
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="<?= ($BASE) ?>/<?= ($ASSETS) ?>/css/style.css">
+        <link rel="stylesheet" href="{{@BASE}}/{{@ASSETS}}/css/style.css">
         <!-- EOF CSS INCLUDE -->
         <!--Load page specifics -->
-        <?php if (isset($extra) && array_key_exists('css', $extra)): ?>
-            
-                <?php foreach (($extra['css']?:[]) as $item): ?>
-                    <link href="<?= ($BASE) ?>/<?= ($ASSETS) ?><?= ($item) ?>" rel="stylesheet" type="text/css"/>
-                <?php endforeach; ?>
-            
-        <?php endif; ?>
+        <check if="{{isset(@extra) && array_key_exists('css', @extra)}}">
+            <true>
+                <repeat group="{{ @extra.css }}" value="{{ @item }}">
+                    <link href="{{@BASE}}/{{@ASSETS}}{{@item}}" rel="stylesheet" type="text/css"/>
+                </repeat>
+            </true>
+        </check>
         
     </head>
     <body>
@@ -46,6 +46,6 @@
         <body>
 
             <div class="main-container">
-                <?php echo $this->render('includes/menus.html',NULL,get_defined_vars(),0); ?>
+                <include href="includes/console/menus.html" />
                 
         

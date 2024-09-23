@@ -5,7 +5,7 @@ class Dashboard extends Controller{
         $id=$f3->get('SESSION.user_id');
         
         
-        $user=$this->db->DBSelect("users", array("id"=>$f3->get('SESSION.user_id')))->first();
+        $user=$this->db->DBSelect("admin", array("id"=>$f3->get('SESSION.user_id')))->first();
         $f3->set('USER',$user);
         //update `candidates` set created_at=DATE_FORMAT(created_at,'2022-%m-%d %T') where id>15 and id<12;
         $datas=$this->db->DBQuery("SELECT YEAR(c.created_at)as year, COUNT(DISTINCT id) as nos FROM candidates AS c  GROUP BY YEAR(c.created_at);")->all();

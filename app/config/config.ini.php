@@ -26,14 +26,14 @@ LOGS = app/logs/
 
 
 db_dns=mysql:host=localhost;port=3306;dbname=
-db_name=knowthemwell
+db_name=alphaadehomes
 db_user=root
 dns=localhost;
 db_pass="Adedeji27@"
 
 
 
-business="KnowDemWell"
+business="Alphaade Homes"
 
 
 TZ = Europe/english

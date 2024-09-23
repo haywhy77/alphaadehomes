@@ -10,24 +10,11 @@
     {
         "name": "users",
         "label": "Users Management",
-        "type": "complex",
-        "icon": "users",
-        "child":[
-            {
-                "name": "view_user",
-                "label": "View Users",
-                "type": "simple",
-                "url": "/candidates/view"
-            },
-
-            {
-                "name": "add_candidate",
-                "label": "Add candidate",
-                "type": "simple",
-                "url": "/candidates/add"
-            }
-        ]
+        "type": "simple",
+        "url": "/users",
+        "icon": "user"
     },
+
     {
         "name": "market",
         "label": "Market Place",
@@ -35,43 +22,28 @@
         "icon": "cart",
         "child":[
             {
-                "name": "view_executives",
-                "label": "View executives",
+                "name": "bookings",
+                "label": "Bookings",
                 "type": "simple",
-                "url": "/executives/view"
+                "url": "/marketplace/bokings"
             },
-
             {
-                "name": "add_executive",
-                "label": "Add executive",
+                "type": "divider"
+            },
+            {
+                "name": "add_listing",
+                "label": "Add Listings",
                 "type": "simple",
-                "url": "/executives/add"
+                "url": "/marketplace/add-listings"
+            },
+            {
+                "name": "listing",
+                "label": "Item Listings",
+                "type": "simple",
+                "url": "/marketplace/listings"
             }
         ]
     },
-
-    {
-        "name": "legislatives",
-        "label": "Legislative Management",
-        "type": "complex",
-        "icon": "users",
-        "child":[
-            {
-                "name": "view_legislatives",
-                "label": "View legislatives",
-                "type": "simple",
-                "url": "/legislatives/view"
-            },
-
-            {
-                "name": "add_executive",
-                "label": "Add legislatives",
-                "type": "simple",
-                "url": "/legislatives/add"
-            }
-        ]
-    },
-    
     
     {
         "name": "messaging",
