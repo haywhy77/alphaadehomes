@@ -1,14 +1,18 @@
 <?php
 class PublicDashboard extends Controller{
     public function index(\Base $f3){
-        $sql="select candidates.*, political_parties.name as party, political_positions.name as position  from candidates, political_positions, political_parties where candidates.position=political_positions.id and candidates.political_party=political_parties.id and candidates.use_on_homepage='1'";
+        // $sql="select candidates.*, political_parties.name as party, political_positions.name as position  from candidates, political_positions, political_parties where candidates.position=political_positions.id and candidates.political_party=political_parties.id and candidates.use_on_homepage='1'";
         
-        $candidate=$this->db->DBQuery($sql)->all();
-        $f3->set('profiles',$candidate);
+        // $candidate=$this->db->DBQuery($sql)->all();
+        // $f3->set('profiles',$candidate);
         echo Template::instance()->render('public/index.htm');die();
     }
     public function about(\Base $f3){
         echo Template::instance()->render('public/about.htm');die();
+    }
+
+    public function services(\Base $f3){
+        echo Template::instance()->render('public/services.htm');die();
     }
 
     public function contact(\Base $f3){

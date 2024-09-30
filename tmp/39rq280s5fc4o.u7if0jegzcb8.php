@@ -9,7 +9,7 @@
     <!-- google fonts -->
     <link href="//fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Template CSS -->
-    <link rel="stylesheet" href="{{@BASE}}/ui/frontend/css/style-liberty.css">
+    <link rel="stylesheet" href="<?= ($BASE) ?>/ui/frontend/css/style-liberty.css">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
                 <h1><a class="navbar-brand" href="index.html">
-                        <img src="{{@BASE}}/ui/frontend/images/alpha-logo.png" width="200">
+                        <img src="<?= ($BASE) ?>/ui/frontend/images/alpha-logo.png" width="200">
                     </a></h1>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
@@ -27,28 +27,28 @@
                 <div class="collapse navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav mx-lg-auto my-2 my-lg-0 navbar-nav-scroll">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{@BASE}}/index">Home</a>
+                            <a class="nav-link active" aria-current="page" href="<?= ($BASE) ?>/index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{@BASE}}/about">About Us</a>
+                            <a class="nav-link" href="<?= ($BASE) ?>/about">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{@BASE}}/services">Our Services</a>
+                            <a class="nav-link" href="<?= ($BASE) ?>/services">Our Services</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#Pages" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Properties <span class="fa fa-angle-down ms-1"></span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item pt-2" href="{{@BASE}}/sale">For Sale</a></li>
-                                <li><a class="dropdown-item" href="{{@BASE}}/rent">For Rent</a></li>
-                                <li><a class="dropdown-item" href="{{@BASE}}/lease">For Lease</a></li>
-                                <li><a class="dropdown-item" href="{{@BASE}}/airbnb">Air BnB</a></li>
+                                <li><a class="dropdown-item pt-2" href="<?= ($BASE) ?>/sale">For Sale</a></li>
+                                <li><a class="dropdown-item" href="<?= ($BASE) ?>/rent">For Rent</a></li>
+                                <li><a class="dropdown-item" href="<?= ($BASE) ?>/lease">For Lease</a></li>
+                                <li><a class="dropdown-item" href="<?= ($BASE) ?>/airbnb">Air BnB</a></li>
 
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{@BASE}}/contact">Contact Us</a>
+                            <a class="nav-link" href="<?= ($BASE) ?>/contact">Contact Us</a>
                         </li>
                     </ul>
                     <!--/search-->
@@ -95,7 +95,7 @@
                         <div class="banner-info header-hero-19">
                             <p class="w3hny-tag">Real Estate is our life</p>
                             <h3 class="title-hero-19">The creativity of the new world.</h3>
-                            <a href="{{@BASE}}/about" class="btn btn-style btn-primary mt-4">Read More <i class="fas fa-angle-double-right ms-2"></i></a>
+                            <a href="<?= ($BASE) ?>/about" class="btn btn-style btn-primary mt-4">Read More <i class="fas fa-angle-double-right ms-2"></i></a>
 
                         </div>
                     </div>
@@ -108,7 +108,7 @@
 
                             <p class="w3hny-tag">Your edge in Real Estate.</p>
                             <h3 class="title-hero-19">The power tools to sell your home</h3>
-                            <a href="{{@BASE}}/about" class="btn btn-style btn-primary mt-4">Read More <i class="fas fa-angle-double-right ms-2"></i></a>
+                            <a href="<?= ($BASE) ?>/about" class="btn btn-style btn-primary mt-4">Read More <i class="fas fa-angle-double-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                             <p class="w3hny-tag">Real Estate is our life</p>
                             <h3 class="title-hero-19">Everyone deserves the right home</h3>
 
-                            <a href="{{@BASE}}/about" class="btn btn-style btn-primary mt-4">Read More <i class="fas fa-angle-double-right ms-2"></i></a>
+                            <a href="<?= ($BASE) ?>/about" class="btn btn-style btn-primary mt-4">Read More <i class="fas fa-angle-double-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
             <div class="witemshny-grids row">
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d1.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d1.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -147,7 +147,7 @@
                 </div>
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d2.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d2.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                 </div>
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d3.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d3.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                 </div>
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d4.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d4.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -174,7 +174,7 @@
                 </div>
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d5.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d5.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -183,7 +183,7 @@
                 </div>
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d6.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d6.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -202,10 +202,10 @@
             <div class="row">
                 <div class="col-md-6 mt-md-0">
                     <div class="grids3-info position-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/banner1.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/banner1.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="w3-grids3-info">
                             <h4 class="gdnhy-1"><a href="#img">Buy a Commercial<br>Property</a>
-                                <a class="w3item-link btn btn-style mt-4" href="{{@BASE}}/sale">
+                                <a class="w3item-link btn btn-style mt-4" href="<?= ($BASE) ?>/sale">
                                     Explore Property <i class="fas fa-angle-double-right ms-2"></i>
                                 </a>
 
@@ -215,10 +215,10 @@
                 </div>
                 <div class="col-md-6 mt-md-0 mt-4 grids3-info2">
                     <div class="grids3-info position-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/banner2.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/banner2.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="w3-grids3-info second">
                             <h4 class="gdnhy-1"><a href="#img">Lease a Commercial<br>Property</a>
-                                <a class="w3item-link btn btn-style mt-4" href="{{@BASE}}/lease">
+                                <a class="w3item-link btn btn-style mt-4" href="<?= ($BASE) ?>/lease">
                                     Explore Property <i class="fas fa-angle-double-right ms-2"></i>
                                 </a>
                             </h4>
@@ -258,7 +258,7 @@
                     <h3 class="title-w3l mb-2">Find, Buy & Own Your Dream Home</h3>
                     <p class="my-3">Finding, buying, and owning your dream home is a significant milestone in one's life. It involves a lot of work from searching to getting a self-fulfilling home that resonates with your preferences, needs, and aspirations.</p>
                     <p class="my-3"> Stress no more, we at Alhpaadehomes will take care of your needs and wants. You're one click away from exploring your dream home.</p>
-                    <a href="{{@BASE}}/sale" class="btn btn-style btn-primary mt-4">Explore Buying <i class="fas fa-angle-double-right ms-2"></i></a>
+                    <a href="<?= ($BASE) ?>/sale" class="btn btn-style btn-primary mt-4">Explore Buying <i class="fas fa-angle-double-right ms-2"></i></a>
                 </div>
             </div>
         </div>
@@ -279,7 +279,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 passion-grid-item-info">
-                        <img src="{{@BASE}}/ui/frontend/images/g6.jpg" alt="" class="img-fluid radius-image">
+                        <img src="<?= ($BASE) ?>/ui/frontend/images/g6.jpg" alt="" class="img-fluid radius-image">
                     </div>
                 </div>
 
@@ -345,7 +345,7 @@
                             <a href="#property">
                                 <div class="box16">
                                     <div class="rentext-listing-category"><span class="pro-left">Buy</span><span class="pro-right">Rent</span></div>
-                                    <img class="img-fluid" src="{{@BASE}}/ui/frontend/images/g1.jpg" alt="">
+                                    <img class="img-fluid" src="<?= ($BASE) ?>/ui/frontend/images/g1.jpg" alt="">
                                     <div class="box-content">
                                         <h3 class="title">$25,00,000</h3>
                                         <span class="post">51 Merrick Way, Coral Gables, USA</span>
@@ -402,7 +402,7 @@
                             <a href="#property">
                                 <div class="box16">
                                     <div class="rentext-listing-category"><span>Buy</span><span>Rent</span></div>
-                                    <img class="img-fluid" src="{{@BASE}}/ui/frontend/images/g2.jpg" alt="">
+                                    <img class="img-fluid" src="<?= ($BASE) ?>/ui/frontend/images/g2.jpg" alt="">
                                     <div class="box-content">
                                         <h3 class="title">$37,00,000</h3>
                                         <span class="post">51 Merrick Way, Coral Gables, USA</span>
@@ -460,7 +460,7 @@
                             <a href="#property">
                                 <div class="box16">
                                     <div class="rentext-listing-category"><span>Buy</span><span>Rent</span></div>
-                                    <img class="img-fluid" src="{{@BASE}}/ui/frontend/images/g3.jpg" alt="">
+                                    <img class="img-fluid" src="<?= ($BASE) ?>/ui/frontend/images/g3.jpg" alt="">
                                     <div class="box-content">
                                         <h3 class="title">$41,00,000</h3>
                                         <span class="post">51 Merrick Way, Coral Gables, USA</span>
@@ -518,7 +518,7 @@
                             <a href="#property">
                                 <div class="box16">
                                     <div class="rentext-listing-category"><span>Buy</span><span>Rent</span></div>
-                                    <img class="img-fluid" src="{{@BASE}}/ui/frontend/images/g4.jpg" alt="">
+                                    <img class="img-fluid" src="<?= ($BASE) ?>/ui/frontend/images/g4.jpg" alt="">
                                     <div class="box-content">
                                         <h3 class="title">$19,00,000</h3>
                                         <span class="post">51 Merrick Way, Coral Gables, USA</span>
@@ -576,7 +576,7 @@
                             <a href="#property">
                                 <div class="box16">
                                     <div class="rentext-listing-category"><span>Buy</span><span>Rent</span></div>
-                                    <img class="img-fluid" src="{{@BASE}}/ui/frontend/images/g5.jpg" alt="">
+                                    <img class="img-fluid" src="<?= ($BASE) ?>/ui/frontend/images/g5.jpg" alt="">
                                     <div class="box-content">
                                         <h3 class="title">$26,00,000</h3>
                                         <span class="post">51 Merrick Way, Coral Gables, USA</span>
@@ -634,7 +634,7 @@
                             <a href="#property">
                                 <div class="box16">
                                     <div class="rentext-listing-category"><span>Buy</span><span>Rent</span></div>
-                                    <img class="img-fluid" src="{{@BASE}}/ui/frontend/images/g6.jpg" alt="">
+                                    <img class="img-fluid" src="<?= ($BASE) ?>/ui/frontend/images/g6.jpg" alt="">
                                     <div class="box-content">
                                         <h3 class="title">$34,00,000</h3>
                                         <span class="post">51 Merrick Way, Coral Gables, USA</span>
@@ -725,7 +725,7 @@
             <div class="witemshny-grids row">
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d1.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d1.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -734,7 +734,7 @@
                 </div>
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d2.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d2.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -743,7 +743,7 @@
                 </div>
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d3.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d3.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -752,7 +752,7 @@
                 </div>
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d4.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d4.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -761,7 +761,7 @@
                 </div>
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d5.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d5.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -770,7 +770,7 @@
                 </div>
                 <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
                     <div class="weitemshny-grid oposition-relative">
-                        <a href="#img" class="d-block zoom"><img src="{{@BASE}}/ui/frontend/images/d6.jpg" alt="" class="img-fluid news-image"></a>
+                        <a href="#img" class="d-block zoom"><img src="<?= ($BASE) ?>/ui/frontend/images/d6.jpg" alt="" class="img-fluid news-image"></a>
                         <div class="witemshny-inf">
                         </div>
                     </div>
@@ -788,14 +788,14 @@
 
 
     <!--/footer-9-->
-<include href="public/footer.htm" />
+<?php echo $this->render('public/footer.htm',NULL,get_defined_vars(),0); ?>
     <!--footer-->
     <!-- Template JavaScript -->
-    <script src="{{@BASE}}/ui/frontend/js/jquery-3.3.1.min.js"></script>
-    <script src="{{@BASE}}/ui/frontend/js/theme-change.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/jquery-3.3.1.min.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/theme-change.js"></script>
     <!--light-box-files -->
-    <script src="{{@BASE}}/ui/frontend/js/jquery-2.1.4.min.js"></script>
-    <script src="{{@BASE}}/ui/frontend/js/jquery.chocolat.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/jquery-2.1.4.min.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/jquery.chocolat.js"></script>
     <script type="text/javascript ">
         $(function() {
             $('.w3_agile_portfolio_grid a').Chocolat();
@@ -804,15 +804,15 @@
     </script>
     <!-- /js for portfolio lightbox -->
     <!-- stats number counter-->
-    <script src="{{@BASE}}/ui/frontend/js/jquery.waypoints.min.js"></script>
-    <script src="{{@BASE}}/ui/frontend/js/jquery.countup.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/jquery.waypoints.min.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/jquery.countup.js"></script>
     <script>
         $('.counter').countUp();
 
     </script>
     <!-- //stats number counter -->
     <!-- owlcarousel -->
-    <script src="{{@BASE}}/ui/frontend/js/owl.carousel.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/owl.carousel.js"></script>
     <!-- script for banner slider-->
     <script>
         $(document).ready(function() {
@@ -869,7 +869,7 @@
     <!-- //tesimonials-->
 
     <!-- video popup -->
-    <script src="{{@BASE}}/ui/frontend/js/jquery.magnific-popup.min.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/jquery.magnific-popup.min.js"></script>
     <script>
         $(document).ready(function() {
             $('.popup-with-zoom-anim').magnificPopup({
@@ -908,9 +908,9 @@
     </script>
     <!-- //video popup -->
     <!--/search-->
-    <script src="{{@BASE}}/ui/frontend/js/modernizr.custom.js"></script>
-    <script src="{{@BASE}}/ui/frontend/js/classie.js"></script>
-    <script src="{{@BASE}}/ui/frontend/js/demo1.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/modernizr.custom.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/classie.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/demo1.js"></script>
     <!--//search-->
     <!-- MENU-JS -->
     <script>
@@ -953,7 +953,7 @@
     </script>
     <!-- //disable body scroll which navbar is in active -->
     <!-- //bootstrap -->
-    <script src="{{@BASE}}/ui/frontend/js/bootstrap.min.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/bootstrap.min.js"></script>
 
 </body>
 

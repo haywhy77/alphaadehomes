@@ -3,8 +3,9 @@
 
 // Public route
 GET / = PublicDashboard->index
-GET /about-us = PublicDashboard->about
-GET /contact-us = PublicDashboard->contact
+GET /about = PublicDashboard->about
+GET /services = PublicDashboard->services
+GET /contact = PublicDashboard->contact
 
 
 GET /get-list = PublicDashboard->getPersons

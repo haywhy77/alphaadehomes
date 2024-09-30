@@ -9,7 +9,7 @@
     <!-- google fonts -->
     <link href="//fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Template CSS -->
-    <link rel="stylesheet" href="{{@BASE}}/ui/frontend/css/style-liberty.css">
+    <link rel="stylesheet" href="<?= ($BASE) ?>/ui/frontend/css/style-liberty.css">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
                 <h1><a class="navbar-brand" href="index.html">
-                        <img src="{{@BASE}}/ui/frontend/images/alpha-logo.png" width="200">
+                        <img src="<?= ($BASE) ?>/ui/frontend/images/alpha-logo.png" width="200">
                     </a></h1>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
@@ -27,28 +27,28 @@
                 <div class="collapse navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav mx-lg-auto my-2 my-lg-0 navbar-nav-scroll">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{@BASE}}/index">Home</a>
+                            <a class="nav-link" aria-current="page" href="<?= ($BASE) ?>/index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{@BASE}}/about">About Us</a>
+                            <a class="nav-link active" href="<?= ($BASE) ?>/about">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{@BASE}}/services">Our Services</a>
+                            <a class="nav-link" href="<?= ($BASE) ?>/services">Our Services</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#Pages" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Properties <span class="fa fa-angle-down ms-1"></span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item pt-2" href="{{@BASE}}/sale">For Sale</a></li>
-                                <li><a class="dropdown-item" href="{{@BASE}}/rent">For Rent</a></li>
-                                <li><a class="dropdown-item" href="{{@BASE}}/lease">For Lease</a></li>
-                                <li><a class="dropdown-item" href="{{@BASE}}/airbnb">Air BnB</a></li>
+                                <li><a class="dropdown-item pt-2" href="<?= ($BASE) ?>/sale">For Sale</a></li>
+                                <li><a class="dropdown-item" href="<?= ($BASE) ?>/rent">For Rent</a></li>
+                                <li><a class="dropdown-item" href="<?= ($BASE) ?>/lease">For Lease</a></li>
+                                <li><a class="dropdown-item" href="<?= ($BASE) ?>/airbnb">Air BnB</a></li>
 
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{@BASE}}/contact">Contact Us</a>
+                            <a class="nav-link" href="<?= ($BASE) ?>/contact">Contact Us</a>
                         </li>
                     </ul>
                     <!--/search-->
@@ -97,7 +97,7 @@
                     </div>
                     <div class="w3breadcrumb-right">
                         <ul class="breadcrumbs-custom-path">
-                            <li><a href="{{@Base}}/index">Home</a></li>
+                            <li><a href="<?= ($Base) ?>/index">Home</a></li>
                             <li class="active"><span class="fas fa-angle-double-right mx-2"></span> About Us</li>
                         </ul>
                     </div>
@@ -113,7 +113,7 @@
             <div class="row">
                 <div class="col-lg-6 pe-lg-5">
                     <div class="w3l-abouthny-img">
-                        <img src="{{@BASE}}/ui/frontend/images/team1.jpg" alt="" class="img-fluid radius-image">
+                        <img src="<?= ($BASE) ?>/ui/frontend/images/team1.jpg" alt="" class="img-fluid radius-image">
                     </div>
                 </div>
                 <div class="col-lg-6 mt-lg-0 mt-5">
@@ -132,7 +132,7 @@
                             <li><span class="fas fa-check"></span> Specialist services</li>
                             <li><span class="fas fa-check"></span> Vision & strategy</li>
                         </ul>
-                        <a href="{{@Base}}/services" class="btn btn-style btn-primary mt-4">Explore our services <i class="fas fa-angle-double-right ms-2"></i></a>
+                        <a href="<?= ($Base) ?>/services" class="btn btn-style btn-primary mt-4">Explore our services <i class="fas fa-angle-double-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -155,10 +155,10 @@
                     <div class="col-lg-6 w3hny-passion-item">
                         <div class="row">
                             <div class="col-6 passion-grid-item-pic">
-                                <img src="{{@BASE}}/ui/frontend/images/d5.jpg" alt="" class="img-fluid radius-image">
+                                <img src="<?= ($BASE) ?>/ui/frontend/images/d5.jpg" alt="" class="img-fluid radius-image">
                             </div>
                             <div class="col-6 passion-grid-item-pic">
-                                <img src="{{@BASE}}/ui/frontend/images/d4.jpg" alt="" class="img-fluid radius-image">
+                                <img src="<?= ($BASE) ?>/ui/frontend/images/d4.jpg" alt="" class="img-fluid radius-image">
                             </div>
 
                         </div>
@@ -225,7 +225,7 @@
                         ultrices in ligula. Semper at. Lorem ipsum dolor sit amet
                         elit. Non quae, fugiat nihil ad. Lorem ipsum dolor sit amet init.
                     </p>
-                    <img src="{{@BASE}}/ui/frontend/images/banner3.jpg" alt="" class="img-fluid radius-image">
+                    <img src="<?= ($BASE) ?>/ui/frontend/images/banner3.jpg" alt="" class="img-fluid radius-image">
 
                 </div>
                 <div class="col-lg-6 faqw3-left">
@@ -366,7 +366,7 @@
                 <div class="col-lg-4 col-6 team-wrap mt-lg-5 mt-4">
                     <div class="team-member text-center">
                         <div class="team-img">
-                            <img src="{{@BASE}}/ui/frontend/images/team1.jpg" alt="" class="radius-image">
+                            <img src="<?= ($BASE) ?>/ui/frontend/images/team1.jpg" alt="" class="radius-image">
                             <div class="overlay-team">
                                 <div class="team-details text-center">
                                     <div class="socials mt-20">
@@ -391,7 +391,7 @@
                 <div class="col-lg-4 col-6 team-wrap mt-lg-5 mt-4">
                     <div class="team-member text-center">
                         <div class="team-img">
-                            <img src="{{@BASE}}/ui/frontend/images/team2.jpg" alt="" class="radius-image">
+                            <img src="<?= ($BASE) ?>/ui/frontend/images/team2.jpg" alt="" class="radius-image">
                             <div class="overlay-team">
                                 <div class="team-details text-center">
                                     <div class="socials mt-20">
@@ -416,7 +416,7 @@
                 <div class="col-lg-4 col-6 team-wrap mt-lg-5 mt-4">
                     <div class="team-member text-center">
                         <div class="team-img">
-                            <img src="{{@BASE}}/ui/frontend/images/team3.jpg" alt="" class="radius-image">
+                            <img src="<?= ($BASE) ?>/ui/frontend/images/team3.jpg" alt="" class="radius-image">
                             <div class="overlay-team">
                                 <div class="team-details text-center">
                                     <div class="socials mt-20">
@@ -577,16 +577,16 @@
     <!--//footer-9 -->
 
     <!-- Template JavaScript -->
-    <script src="{{@BASE}}/ui/frontend/js/jquery-3.3.1.min.js"></script>
-    <script src="{{@BASE}}/ui/frontend/js/theme-change.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/jquery-3.3.1.min.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/theme-change.js"></script>
     <!--/search-->
-    <script src="{{@BASE}}/ui/frontend/js/modernizr.custom.js"></script>
-    <script src="{{@BASE}}/ui/frontend/js/classie.js"></script>
-    <script src="{{@BASE}}/ui/frontend/js/demo1.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/modernizr.custom.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/classie.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/demo1.js"></script>
     <!--//search-->
     <!--/stats-number-counter-->
-    <script src="{{@BASE}}/ui/frontend/js/jquery.waypoints.min.js"></script>
-    <script src="{{@BASE}}/ui/frontend/js/jquery.countup.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/jquery.waypoints.min.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/jquery.countup.js"></script>
     <script>
         $('.counter').countUp();
 
@@ -634,7 +634,7 @@
     </script>
     <!-- //disable body scroll which navbar is in active -->
     <!-- //bootstrap -->
-    <script src="{{@BASE}}/ui/frontend/js/bootstrap.min.js"></script>
+    <script src="<?= ($BASE) ?>/ui/frontend/js/bootstrap.min.js"></script>
 
 </body>
 

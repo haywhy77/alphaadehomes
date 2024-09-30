@@ -35,32 +35,32 @@ if (Home::isLoggedIn()) {
 	$f3->config('app/routes/public.ini.php');
 }
 // var_dump($f3->get('MENU'));exit;
-$f3->set('ONERROR',
-    function($f3) {
-        // custom error handler code goes here
-        // use this if you want to display errors in a
-        // format consistent with your site's theme
-		$code = $f3->get('ERROR.code');
-		$text =$f3->get('ERROR.text');
-		// echo $text;exit;
-		if($code == 404){
-			$token=$f3->get('SESSION.token');
-			// echo $token;exit;
-			if(!$token){
-				$user=$f3->get('SESSION.account');
+// $f3->set('ONERROR',
+//     function($f3) {
+//         // custom error handler code goes here
+//         // use this if you want to display errors in a
+//         // format consistent with your site's theme
+// 		$code = $f3->get('ERROR.code');
+// 		$text =$f3->get('ERROR.text');
+// 		// echo $text;exit;
+// 		if($code == 404){
+// 			$token=$f3->get('SESSION.token');
+// 			// echo $token;exit;
+// 			if(!$token){
+// 				$user=$f3->get('SESSION.account');
 				
-				$f3->clear('SESSION');
-				$f3->reroute($f3->get('PROTOCOL').$f3->get('HOST').$f3->get('BASE').'/admin');
-			}
-			echo Template::instance()->render('auth/404.html');die();
-		}
+// 				$f3->clear('SESSION');
+// 				$f3->reroute($f3->get('PROTOCOL').$f3->get('HOST').$f3->get('BASE').'/admin');
+// 			}
+// 			echo Template::instance()->render('auth/404.html');die();
+// 		}
 
-		if($code == 500){
-			echo Template::instance()->render('auth/500.html');die();
-		}
-        // echo $f3->get('ERROR.code');exit;
-    }
-);
+// 		if($code == 500){
+// 			echo Template::instance()->render('auth/500.html');die();
+// 		}
+//         // echo $f3->get('ERROR.code');exit;
+//     }
+// );
 
 // var_dump($f3->ROUTES);exit;
 

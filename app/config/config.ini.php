@@ -2,7 +2,7 @@
 [globals]
 
 AUTOLOAD=app/inc/|app/controllers/|app/models/
-HOME="https://staging.knowdemwell.org"
+HOME="https://alphaadehomes.co.uk"
 
 PROTOCOL="http://"
 UI=app/views/
@@ -29,11 +29,11 @@ db_dns=mysql:host=localhost;port=3306;dbname=
 db_name=alphaadehomes
 db_user=root
 dns=localhost;
-db_pass="Adedeji27@"
+db_pass=""
 
 
 
-business="Alphaade Homes"
+business="Alpha Ade Homes"
 
 
 TZ = Europe/english
