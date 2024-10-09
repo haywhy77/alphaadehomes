@@ -12,6 +12,8 @@ class Home extends Controller{
             $signature =$JwtController->decode($token);
             // echo $signature;exit;
             if(!$signature){
+                $uri=$f3->get('MENU')."user_".$f3->get('SESSION.user_id').".ini.php";
+                @unlink($uri);
                 @$f3->clear('SESSION.token');
                 @$f3->clear('SESSION.user_id');
                 @$f3->clear('SESSION.USER');
@@ -25,6 +27,29 @@ class Home extends Controller{
                     $f3->set('USER',$user);
                     $token =$JwtController->encode($signature);
                     $f3->set('SESSION.token', $token);
+                    $root = file('app/routes/routes_admin.ini.php', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                    
+                    $preprocess=ProcessRoutes::instance();
+                    $root=$preprocess->preporcess($root);
+                    // var_dump($root);exit;
+                    if($user->role_id==0){
+                        $preprocess->config();
+                    }else{
+                        //get menus
+                        $menus=$self->db->DBSelect("menus", array("role_id"=>$user->role_id))->all();
+                        // var_dump($menus);exit;
+                        if($menus && is_array($menus) && count($menus)>0){
+                            $menu=array_map(function($m){
+                                return $m['url'];
+                            }, $menus);
+                            
+                            $preprocess->virtual($menu);
+                            $preprocess->config();
+                        }else{
+                            return false;
+                        }
+                    }
+                    
                     return true;
                 }
             }
@@ -38,7 +63,8 @@ class Home extends Controller{
                 }
             }
         }
-        
+        $uri=$f3->get('MENU')."user_".$f3->get('SESSION.user_id').".ini.php";
+        @unlink($uri);
         return false;
     }
 
@@ -93,8 +119,14 @@ class Home extends Controller{
                 } elseif($hash_engine == 'md5') {
                     $valid = (md5($f3->get('POST.password').$f3->get('password_md5_salt')) == $user->password);
                 }
-                
-                if($valid) {
+
+                if(!$valid){
+                    \Flash::instance()->addMessage('Invalid password', 'danger');
+                }else if($user->role_id>0 && $user->isVerify==0){
+                    \Flash::instance()->addMessage('Kindly verify your account from your mail.', 'danger');
+                }else if($user->role_id>0 && $user->status!=='ACTIVE'){
+                    \Flash::instance()->addMessage('Ypur account has been deactivated. Kindly contact admin for assistance.', 'danger');
+                }else{
                     @$f3->clear('SESSION');
                     $f3->set('SESSION.user_id',$user->id);
                     if($user->isDefault=='YES'){
@@ -114,13 +146,12 @@ class Home extends Controller{
                     if($f3->get('CONFIG.ssl_backend'))
                         $f3->reroute($f3->get('PROTOCOL').$f3->get('HOST').$f3->get('BASE').'/');
                     else $f3->reroute('/console');
-                }else{
-                    \Flash::instance()->addMessage('Invalid password', 'danger');
                 }
             }else{
                 \Flash::instance()->addMessage('Invalid email address', 'danger');
             }
         }
+        $f3->set('page', ["title"=>"Login"]);
         $f3->set('form.action', 'admin');
         echo Template::instance()->render('auth/login.html');die();
         // $this->f3->set('template','auth/login.html');
@@ -250,8 +281,11 @@ class Home extends Controller{
     }
         
     public function logout($f3,$params) {
+        $uri=$f3->get('MENU')."user_".$this->f3->get('SESSION.user_id').".ini.php";
+        @unlink($uri);
         $user=$f3->get('SESSION.account');
         $f3->clear('SESSION');
+        
         if($user=='USER'){
             $f3->reroute($f3->get('HOME')); //$f3->get('PROTOCOL').$f3->get('HOST')
         }else{

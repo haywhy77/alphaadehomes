@@ -1,0 +1,18 @@
+<!-- Bootstrap Css -->
+<link href="{{@BASE}}/ui/admin/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Template CSS -->
+<link rel="stylesheet" href="{{@BASE}}/ui/frontend/css/style-liberty.css" />
+<link rel="stylesheet" href="{{@BASE}}/ui/plugins/chocolat/dist/css/chocolat.css" />
+<!-- Icons Css -->
+
+
+<check if="{{isset(@extra) && array_key_exists('css', @extra)}}">
+    <true>
+        <repeat group="{{ @extra.css }}" value="{{ @item }}">
+            <link href="{{@BASE}}/{{@item}}" rel="stylesheet" type="text/css"/>
+        </repeat>
+    </true>
+</check>
+
+<link rel="stylesheet" href="{{@BASE}}/ui/admin/css/extended.css" />

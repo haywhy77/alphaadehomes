@@ -70,7 +70,7 @@
                         </tbody>
                     </table>
                 </div>
-                <?php echo $this->render('includes/pagination.html',NULL,['data'=>$candidates,'url'=>'/candidates']+get_defined_vars(),0); ?>
+                <?php echo $this->render('includes/console/pagination.htm',NULL,['data'=>$candidates,'url'=>'/candidates']+get_defined_vars(),0); ?>
             </div>
         </div>
 

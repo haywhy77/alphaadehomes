@@ -1,57 +1,64 @@
 <div class="row">
-    <div class="col-12 col-lg-9">
-
+    <div class="col-12 col-lg-12">
 
         <div class="card">
-            <div class="widget invert widget--items-middle">
-                <div class="widget__icon_layer widget__icon_layer--right">
-                    <span class="li-folder-user"></span>
-                </div>
-                <div class="widget__container">
-                    <div class="widget__line">
-                        <div class="widget__icon">
-                            <span class="li-folder-user"></span>
-                        </div>
-                        <div class="widget__title">Staff List</div>
-                        <div class="widget__subtitle"></div>
-                    </div>
-                    <div class="widget__box">
-                        
-                    </div>
-                </div>
-            </div>
             <div class="card-body">
-
+                <h4 class="header-title">List of all admin users</h4>
+                <p class="card-title-desc"></p>    
+                
                 <div class="table-responsive">
-                    <table class="table table-indent-rows margin-bottom-0">
-                        <thead>
+                    <table class="table mb-0">
+
+                        <thead class="table-light">
                             <tr>
-                                <th width="100">
-                                    <div class="form-check">
-                                        <label class="form-check-label">#</label>
-                                    </div>
-                                </th>
+                                <th width="100"></th>
                                 <th>Name</th>
                                 <th >Email</th>
-                                <th width="200">Contact number</th>
-                                <th width="150">Status</th>
+                                <th >Role</th>
+                                <th width="100">Verified</th>
+                                <th width="100">Is Default Password</th>
+                                <th width="100">Status</th>
+                                <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="table-hover">
                             <repeat group="{{ @staff.data }}" key="{{@key}}" value="{{ @company }}" counter="{{@count}}">
-                                <tr>
+                                <tr scope="row">
                                     <td>
                                         <div class="form-check">
                                             <label class="form-check-label">{{@count}}</label>
                                         </div>
                                     </td>
                                     <td>
-                                        <strong><a href="{{@BASE}}/staff/{{@company.id}}">{{@company.names}}</a></strong>
+                                        <strong>{{@company.names}}</strong>
                                     </td>
                                     <td>{{@company.email}}</td>
-                                    <td>{{@company.phone}}</td>
+                                    <td>{{@company.role}}</td>
+                                    <td>
+                                        <div class="btn {{@company.isVerify=='1'?'btn-outline-success':'btn-outline-danger'}} btn-block disabled btn-sm">{{@company.isVerify==1?'YES':'NO'}}</div>
+                                    </td>
+                                    <td>
+                                        <div class="btn {{@company.isDefault=='1'?'btn-outline-success':'btn-outline-danger'}} btn-block disabled btn-sm">{{@company.isDefault==1?'YES':'NO'}}</div>
+                                    </td>
                                     <td>
                                         <div class="btn {{@company.status=='ACTIVE'?'btn-outline-success':'btn-outline-danger'}} btn-block disabled btn-sm">{{@company.status}}</div>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-secondary btn-sm {{@company.status=='DEACTIVATED'?'disabled':''}}">Reset</button>
+
+                                        <check if="{{@company.status=='ACTIVE'}}">
+                                            <true>
+                                                <button class="btn btn-danger btn-sm btn-icon delete" data-client="{{@company.id}}" data-bs-toggle="modal" data-bs-target="#exampleModal" data-text="Are you sure you want to deactivate this admin users account?" data-todo="DEACTIVATED">Deactivate</button>
+                                            </true>
+                                        </check>
+                                        <check if="{{@company.status=='DEACTIVATED'}}">
+                                            <true>
+                                                <button class="btn btn-danger btn-sm btn-icon delete" data-client="{{@company.id}}" data-bs-toggle="modal" data-bs-target="#exampleModal" data-text="Are you sure you want to ACTIVATE this admin users account?" data-todo="ACTIVE">Activate</button>
+                                            </true>
+                                        </check>
+
+
+                                        <button class="btn btn-danger btn-sm btn-icon delete" data-client="{{@company.id}}" data-bs-toggle="modal" data-bs-target="#exampleModal" data-text="Are you sure you want to trash this admin users account?" data-todo="DELETED"><span class="fa fa-trash"></span></button>
                                     </td>
                                 </tr>
                             </repeat>
@@ -59,9 +66,9 @@
                         </tbody>
                     </table>
                 </div>
-                <include href="includes/pagination.html" with="data={{@staff}}, url=/staff" />
+
             </div>
         </div>
-
+        <include href="includes/console/pagination.htm" with="data={{@staff}}, url=/staff" />
     </div>
 </div>

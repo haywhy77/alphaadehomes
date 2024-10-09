@@ -5,9 +5,9 @@ class Users extends Controller{
         // var_dump($params);exit;
         $page=array_key_exists('page', $params)?$params["page"] : 1;
         $limit=array_key_exists('limit', $params)?$params["limit"] : 20;
-        $clients=$this->db->DBQuery("select * from users where id <> {$f3->get('SESSION.user_id')}")->paginates($page, $limit);
+        $clients=$this->db->DBQuery("select * from users order by id desc")->paginates($page, $limit);
         $f3->set('users',$clients);
-        $f3->set('page',['title'=>'Admin Users', 'desc'=>'']);
+        $f3->set('page',["title"=>"Admin users", "pagetitle"=>"", "subtitle"=>""]); 
         $f3->set('template','pages/users/manage.htm');
     }
 

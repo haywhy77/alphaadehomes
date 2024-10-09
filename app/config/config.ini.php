@@ -10,9 +10,10 @@ MAN_UPLOADS=ui/uploads/manifestos/
 CAND_UPLOADS=ui/uploads/candidates/
 ASSETS = ui
 EMAIL = app/email/
+MENU = app/menu/
 DOWNLOAD = ui/download/
-PASSPORT = ui/passport/
-JOB_URL= "../jobs.php"
+PROPERTY = ui/properties/
+
 
 SECRET_KEY = "secret_key"
 JWT_TTL = 60
@@ -29,11 +30,12 @@ db_dns=mysql:host=localhost;port=3306;dbname=
 db_name=alphaadehomes
 db_user=root
 dns=localhost;
-db_pass=""
+db_pass="Adedeji27@"
 
 
 
-business="Alpha Ade Homes"
+business="Alphaade Homes"
+powered="iCode Resources"
 
 
 TZ = Europe/english
@@ -51,8 +53,8 @@ password_md5_salt = jK$N!Lx5hvvvtyhbhc7477r47rf4^T^$T^$$&Y&y37^**%&%&&%JJfvbfrhf
 
 timestamps = true
 
-smtp_host="mail.deenservices.com"
-smtp_username="no-reply@deenservices.com"
-smtp_pw="Deenservices"
+smtp_host="mail.alphaadehomes.co.uk"
+smtp_username="no-reply@alphaadehomes.co.uk"
+smtp_pw="Alphaade77_"
 smtp_port="465"
-smtp_user="no-reply@deenservices.com"
+smtp_user="no-reply@alphaadehomes.co.uk"

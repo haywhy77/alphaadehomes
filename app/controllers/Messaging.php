@@ -14,7 +14,7 @@ class Messaging extends Controller{
         $messages=$this->db->DBQuery($sql)->paginates($page, $limit);
         
         $f3->set('messages',$messages);
-        $f3->set('page',['title'=>ucfirst($params['id']), 'desc'=>'']);
+        $f3->set('page', ["title"=>ucfirst($params['id']), "pagetitle"=>"", "subtitle"=>"List"]); 
         $f3->set('template','pages/message/manage.htm');
     }
 
@@ -45,7 +45,15 @@ class Messaging extends Controller{
             $mail=SendMail::instance()->send("No-reply", $recipients, $subject, $content);
             \Flash::instance()->addMessage("Mail sent", 'success');
         }
-        $f3->set('page',['title'=>'Mails', 'desc'=>'']);
+        $f3->set('page',["title"=>"Mail", "pagetitle"=>"", "subtitle"=>"List"]); 
+        $f3->set("extra", [
+            "css"=>[
+                "ui/plugins/micteditor/rte.css"
+            ],
+            "js"=>[
+                "ui/plugins/micteditor/rte.js"
+            ]
+        ]);
         $f3->set('template','pages/message/compose.htm');
     }
 

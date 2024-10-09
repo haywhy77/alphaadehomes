@@ -33,7 +33,7 @@
                         </tbody>
                     </table>
                 </div>
-                <?php echo $this->render('includes/pagination.html',NULL,['data'=>$settings['positions'],'url'=>'/settings/positions']+get_defined_vars(),0); ?>
+                <?php echo $this->render('includes/console/pagination.htm',NULL,['data'=>$settings['positions'],'url'=>'/settings/positions']+get_defined_vars(),0); ?>
             </div>
         </div>
     </div>

@@ -2040,6 +2040,7 @@ final class Base extends Prefab implements ArrayAccess {
 	*	@param $allow bool
 	**/
 	function config($source,$allow=FALSE) {
+		
 		if (is_string($source))
 			$source=$this->split($source);
 		if ($allow)

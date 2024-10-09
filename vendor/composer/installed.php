@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'bcosca/fatfree',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '96ccf4af290f9b6fe0348dbd7f575818da205c27',
+        'pretty_version' => 'dev-temp-push',
+        'version' => 'dev-temp-push',
+        'reference' => '3a3d7a49c862b4bea71aec5c0f02af3ab0b10d58',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'bcosca/fatfree' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '96ccf4af290f9b6fe0348dbd7f575818da205c27',
+            'pretty_version' => 'dev-temp-push',
+            'version' => 'dev-temp-push',
+            'reference' => '3a3d7a49c862b4bea71aec5c0f02af3ab0b10d58',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

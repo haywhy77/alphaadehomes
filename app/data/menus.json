@@ -4,14 +4,14 @@
         "name": "dashboard",
         "label": "Dashboard",
         "type": "simple",
-        "url": "/",
+        "url": "/console",
         "icon": "home"
     },
     {
         "name": "users",
-        "label": "Users Management",
+        "label": "Users",
         "type": "simple",
-        "url": "/users",
+        "url": "/console/users",
         "icon": "user"
     },
 
@@ -25,22 +25,20 @@
                 "name": "bookings",
                 "label": "Bookings",
                 "type": "simple",
-                "url": "/marketplace/bokings"
+                "url": "/console/bookings"
             },
-            {
-                "type": "divider"
-            },
+            
             {
                 "name": "add_listing",
                 "label": "Add Listings",
                 "type": "simple",
-                "url": "/marketplace/add-listings"
+                "url": "/console/properties/new"
             },
             {
                 "name": "listing",
                 "label": "Item Listings",
                 "type": "simple",
-                "url": "/marketplace/listings"
+                "url": "/console/properties"
             }
         ]
     },
@@ -49,85 +47,56 @@
         "name": "messaging",
         "label": "Messaging",
         "type": "complex",
-        "icon": "envelope",
+        "icon": "message",
         "child":[
             {
                 "name": "compose",
                 "label": "Compose",
                 "type": "simple",
-                "url": "/messaging/compose"
+                "url": "/console/messaging/compose"
             },
 
             {
                 "name": "contacts",
                 "label": "Contacts",
                 "type": "simple",
-                "url": "/messaging/contacts"
+                "url": "/console/messaging/contacts"
             },
             
             {
                 "name": "feedback",
                 "label": "Feedbacks",
                 "type": "simple",
-                "url": "/messaging/feedback"
+                "url": "/console/messaging/feedback"
             },
             {
                 "name": "subscription",
                 "label": "Subscriptions",
                 "type": "simple",
-                "url": "/messaging/subscription"
+                "url": "/console/messaging/subscription"
             }
         ]
     },
     
-    
+
     {
-        "name": "access_management",
-        "label": "Access management",
+        "name": "settings",
+        "label": "System settings",
         "type": "complex",
-        "icon": "user",
+        "icon": "gear",
         "child":[
             {
                 "name": "roles",
                 "label": "Roles managements",
                 "type": "simple",
-                "url": "/access/roles"
+                "url": "/console/access/roles"
             },
             
             {
                 "name": "users",
                 "label": "User managements",
                 "type": "simple",
-                "url": "/access/users"
-            }
-        ]
-    },
-
-    {
-        "name": "settings",
-        "label": "System settings",
-        "type": "complex",
-        "icon": "cog",
-        "child":[
-            {
-                "name": "perfomance",
-                "label": "Perfomance index",
-                "type": "simple",
-                "url": "/settings/performance"
-            },
-
-            {
-                "name": "party",
-                "label": "Political parties",
-                "type": "simple",
-                "url": "/settings/parties"
-            },
-
-            {
-                "name": "position",
-                "label": "Political positions",
-                "type": "simple",
-                "url": "/settings/positions"
+                "url": "/console/access/users"
             }
         ]
     }

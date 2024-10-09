@@ -12,7 +12,8 @@
         "ikkez/f3-assets": "^1.2",
         "ikkez/f3-pagination": "^1.4",
 		"ikkez/f3-schema-builder": "^2.2",
-		"smalot/pdfparser": "^2.10"
+		"smalot/pdfparser": "^2.10",
+		"scssphp/scssphp": "^1.13.0"
 	},
 	"repositories": [
 		{

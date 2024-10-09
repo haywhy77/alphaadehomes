@@ -5,77 +5,47 @@ class PublicDashboard extends Controller{
         
         // $candidate=$this->db->DBQuery($sql)->all();
         // $f3->set('profiles',$candidate);
+        $f3->set('page',["title"=>"Welcome", "pagetitle"=>"", "subtitle"=>"Detail"]); 
         echo Template::instance()->render('public/index.htm');die();
+        
+        $f3->set('template','public/index.htm');
     }
+
     public function about(\Base $f3){
+        $f3->set('page',["title"=>"Welcome", "pagetitle"=>"", "subtitle"=>"Detail"]); 
         echo Template::instance()->render('public/about.htm');die();
     }
 
     public function services(\Base $f3){
+        $f3->set('page',["title"=>"Welcome", "pagetitle"=>"", "subtitle"=>"Detail"]); 
         echo Template::instance()->render('public/services.htm');die();
     }
 
     public function contact(\Base $f3){
-        echo Template::instance()->render('public/contact.htm');die();
-    }
+        // var_dump($f3->get('POST'));exit;
+        if($f3->exists('POST') && $f3->exists('POST.name') && $f3->exists('POST.sender') && $f3->exists('POST.subject') && $f3->exists('POST.w3lMessage')){
+            sleep(3);
+            $record=[
+                "name"=>$f3->get('POST.name'),
+                "email"=>$f3->get('POST.sender'),
+                "phone"=>$f3->get('POST.phone'),
+                "subject"=>$f3->get('POST.subject'),
+                "content"=>strip_tags(html_entity_decode($f3->get('POST.w3lMessage'))),
+                "type"=>'CONTACT'
+            ];
+            // var_dump($record);exit;
+            $row=$this->db->DBInsert("messaging", $record, array("name", "email", "subject", "content"));
+            // var_dump($row);exit;
+            if(!$row->resp){
+                \Flash::instance()->addMessage($row->message, 'danger');
+            }else{
 
-    public function getPersons(\Base $f3, $params){
-        // var_dump($_SERVER['QUERY_STRING']);exit;
-        // $params=explode("&", $_SERVER['QUERY_STRING']);
-        parse_str($_SERVER['QUERY_STRING'], $params);
-        // var_dump($params);exit;
-        $sql="select candidates.*, positions.name as position, political_parties.name as party from candidates, political_positions as positions, political_parties where candidates.political_party=political_parties.id and candidates.position=positions.id and candidates.type='{$params['type']}' and positions.abbr REGEXP '{$params['category']}'";
-        // echo $sql;exit;
-        $result=$this->db->DBQuery($sql)->all();
-        // var_dump($result);exit;
-        $f3->set("candidates", $result);
-        echo Template::instance()->render('public/candidates.htm');die();
-    }
-
-    public function getDetail(\Base $f3, $params){
-        $id=$params['id'];
-        $profile=$this->db->DBQuery("select * from candidates where MD5(id)='$id'")->first();
-        $f3->set('profile', $profile);
-
-        //get mettrics:
-        $index=$this->db->DBQuery("select id, name from performance_index order by id asc")->all();
-        
-        if($index && count($index)>0){
-            for($i=0; $i<count($index); $i++){
-                $metrics=$this->db->DBQuery("select performance_metrics_details.*, signals.name, signals.value from performance_metrics, performance_metrics_details, signals where signals.id=performance_metrics_details.p_signal and performance_metrics_details.metric_id=performance_metrics.id and performance_metrics.index_id='{$index[$i]['id']}' and MD5(performance_metrics.cand_id)='{$params['id']}'")->all();
-                
-                if($metrics){
-                    $value=0;
-
-                    foreach($metrics as $k=>$v){
-                        $value +=$v['value'];
-                    }
-                    if($value>0) $index[$i]['kp']=$value /count($metrics);
-                    $index[$i]['class']='low';
-                    
-                    if($index[$i]['kp']>39 && $index[$i]['kp']<70){
-                        $index[$i]['class']='medium';
-                    }
-
-                    if($index[$i]['kp']>69 && $index[$i]['kp']<90){
-                        $index[$i]['class']='high';
-                    }
-
-                    if($index[$i]['kp']>89){
-                        $index[$i]['class']='perfect';
-                    }
-                    
-                    $index[$i]['metrics']=$metrics;
-                }else{
-                    $index[$i]['class']='low';
-                    $index[$i]['kp']=0;
-                    $index[$i]['metrics']=[];
-                }
+                //send a mail to an agent.
+                \Flash::instance()->addMessage("Thank you for contacting Alphaade Homes. One of our agent will reach out to you soon.", 'success');
             }
+            
         }
-        // var_dump($index);exit;
-        $f3->set('kpis',$index);
-        // var_dump($profile);exit;
-        echo Template::instance()->render('public/detail.htm');die();
+        $f3->set('page',["title"=>"Welcome", "pagetitle"=>"", "subtitle"=>"Detail"]); 
+        echo Template::instance()->render('public/contact.htm');die();
     }
 }

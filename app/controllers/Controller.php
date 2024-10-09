@@ -3,10 +3,9 @@
 setlocale(LC_MONETARY, 'en_US');
 
 class Controller extends \Prefab{
- 
     public $f3;
     public $db;
- 
+
     function beforeRoute() {
 		if(!empty($_SERVER['HTTP_CLIENT_IP'])) {  
 			$ip = $_SERVER['HTTP_CLIENT_IP'];  
@@ -21,17 +20,22 @@ class Controller extends \Prefab{
 		}  
 		$this->cors();
 	}
- 	
+
     function afterRoute() {
-    	echo Template::instance()->render('console.html');
+		$layout=$this->f3->get('SESSION.account');
+		
+		if($layout==='ADMIN'){
+			echo Template::instance()->render('console.html');
+		}else{
+			echo Template::instance()->render('public.html');
+		}
+    	
     }
- 
+
     function __construct() {
- 
+
         $f3=Base::instance();
- 
-        
- 		
+
 		$this->f3=$f3;
 		$this->dbConnect();
     }
@@ -43,7 +47,6 @@ class Controller extends \Prefab{
             $this->f3->get('db_pass')
         );
 		$this->db= new Database($db_con,'users');
-		
 	}
 
 	public function Response($status_code, $response) {
@@ -93,16 +96,17 @@ class Controller extends \Prefab{
 	function in_object($value,$object,$empty=false) {
 		if($empty) return true;
 		if (is_array($object)) {
-		  foreach($object as $key => $item) {
-			  //echo "$value==$item,";
-			if ($value==$item) return true;
-		  }
+			foreach($object as $key => $item) {
+				if ($value==$item) return true;
+			}
 		}
 		return false;
-	 }
-	function createFileName(){
-		 return str_replace('-','',$this->uuid());
 	}
+
+	function createFileName(){
+		return str_replace('-','',$this->uuid());
+	}
+
 	function uuid($serverID=1){
 		$t=explode(" ",microtime());
 		return sprintf( '%04x-%08s-%08s-%04s-%04x%04x',
@@ -112,15 +116,18 @@ class Controller extends \Prefab{
 			substr("0000".dechex(round($t[0]*65536)),-4), // get 4HEX of microtime
 			mt_rand(0,0xffff), mt_rand(0,0xffff));
 	}
+
 	function clientIPToHex($ip="") {
 		$hex="";
 		if($ip=="") $ip=getEnv("REMOTE_ADDR");
-		$part=explode('.', $ip);
+		$part=explode('.', str_replace('::','',$ip));
+		
 		for ($i=0; $i<=count((Array)$part)-1; $i++) {
 			$hex.=substr("0".dechex($part[$i]),-2);
 		}
 		return $hex;
 	}
+
 	function getArrayDiff($a1,$a2) {
 		$r = array(); 
 		foreach ($a2 as $key => $second) { 
@@ -157,13 +164,13 @@ class Controller extends \Prefab{
 		fclose($fp);
 		return true;
 	}
-	function createIMG($base64_string, $output_file) {
-		$uri = 'ui/uploads/download/';
-		if(!file_exists($uri)) {
-			mkdir($uri);
+	
+	function createIMG($base64_string, $uri) {
+		$dir=mb_substr($uri,0,-mb_strlen(strrchr($uri,"/")));
+		if(!file_exists($dir)) {
+			mkdir($dir,0777);
 		}
-		$uri .=$output_file;
-		//echo $uri;exit;
+		// echo $uri;exit;
 		$ifp = fopen($uri, "wb"); 
 		$data = explode(',', $base64_string);
 		fwrite($ifp, base64_decode($data[1])); 
@@ -214,5 +221,43 @@ class Controller extends \Prefab{
 		$visibleCount = (int) round($length / 4);
 		$hiddenCount = $length - ($visibleCount * 2);
 		return substr($string, 0, $visibleCount) . str_repeat('*', $hiddenCount) . substr($string, ($visibleCount * -1), $visibleCount);
+	}
+
+	public function readFilesFromDirectory($directory){
+	    $arrFiles = array();
+	    if(is_dir($directory)){
+	        return array_diff(scandir($directory), array('..', '.'));
+	    }else{
+	        return [];
+	    }
+	}
+
+	public function time_elapsed_string($datetime, $full = false) {
+		$now = new DateTime;
+		$ago = new DateTime($datetime);
+		$diff = (array)$now->diff($ago);
+		// var_dump($diff);exit;
+		$diff['w'] = floor($diff['d'] / 7);
+		$diff['d'] -= $diff['w'] * 7;
+		$diff=(object)$diff;
+		$string = array(
+			'y' => 'year',
+			'm' => 'month',
+			'w' => 'week',
+			'd' => 'day',
+			'h' => 'hour',
+			'i' => 'minute',
+			's' => 'second',
+		);
+		foreach ($string as $k => &$v) {
+			if ($diff->$k) {
+				$v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+			} else {
+				unset($string[$k]);
+			}
+		}
+	
+		if (!$full) $string = array_slice($string, 0, 1);
+		return $string ? implode(', ', $string) . ' ago' : 'just now';
 	}
 }

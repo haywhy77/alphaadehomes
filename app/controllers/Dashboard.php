@@ -6,9 +6,11 @@ class Dashboard extends Controller{
         
         
         $user=$this->db->DBSelect("admin", array("id"=>$f3->get('SESSION.user_id')))->first();
-        $f3->set('USER',$user);
+        // var_dump($user);exit;
+        $f3->set('SESSION.USER',$user);
         //update `candidates` set created_at=DATE_FORMAT(created_at,'2022-%m-%d %T') where id>15 and id<12;
         $datas=$this->db->DBQuery("SELECT YEAR(c.created_at)as year, COUNT(DISTINCT id) as nos FROM candidates AS c  GROUP BY YEAR(c.created_at);")->all();
+        // var_dump($datas);exit;
         $barchart=[];
         $total=0;
         if($datas){
@@ -22,13 +24,76 @@ class Dashboard extends Controller{
         $f3->set('barchartYear',rtrim(implode(",", array_keys($barchart)), ","));
         $f3->set('barchartValue', rtrim(implode(",", array_values($barchart)), ","));
         $f3->set('barchart', $barchart);
+
+        $f3->set('fetchImage',function($id){
+            
+            $dft=$this->db->DBQuery("select default_picture from properties where id='{$id}'")->first();
+            
+            if($dft && $dft->default_picture !=''){
+                return $dft->default_picture;
+            }else{
+                
+                $dir=$this->f3->get('PROPERTY').$id;
+                
+                if(is_dir($dir) && file_exists($dir)){
+                    $files=$this->readFilesFromDirectory($dir);
+                    $first=array_pop($files);
+                    return "ui/properties/{$id}/{$first}";
+                }else{
+                    return "ui/images/No-image.svg";
+                }
+            }
+            
+        });
+
+        $f3->set("fixTime", function($date){
+            return $this->time_elapsed_string($date);
+        });
+
+        $f3->set("calculatePercentage", function($value){
+            $props=$this->db->DBQuery("select count(id) as total from properties")->first();
+            return ($value/$props->total) * 100;
+        });
+
+        //Get property reviews and visit
+        $properties=$this->db->DBQuery("select id, title, ratings, views, updated_at from properties order by ratings desc, views desc, id desc limit 5")->all();
+        $f3->set('properties', $properties);
+
+        //Best ratings
+        $properties=$this->db->DBQuery("select id, title, category, type, ratings, views, availability, price, updated_at from properties order by ratings desc, views desc, id desc limit 3")->all();
+        $f3->set('views', $properties);
+
+
+        //Group by state
+        $states=$this->db->DBQuery("select state, count(id) as total from properties GROUP BY state")->all();
+        $f3->set('states', $states);
+
+
+        //statistics
+        $properties=$this->db->DBQuery("select count(id) as total, sum(views) as views from properties")->first();
+        $bookings=$this->db->DBQuery("select count(id) as total from bookings")->first();
+        $proper=$this->db->DBQuery("select sum(price) as total from properties where availability='sold'")->first();
+        $f3->set('statistics', [
+            "property"=>$properties->total,
+            "booking"=>$bookings->total,
+            "revenue"=>$proper->total,
+            "views"=>$properties->views,
+        ]);
+
         $f3->set("extra", [
+            "css"=>[
+                "ui/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css"
+            ],
             "js"=>[
-                "js/vendors/chartjs/Chart.bundle.min.js",
-                "js/vendors/chartjs/utils.js"
+                "ui/admin/libs/apexcharts/apexcharts.min.js",
+                "ui/admin/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js",
+                "ui/admin/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js",
+                "ui/admin/js/pages/dashboard.init.js"
             ]
         ]);
+        $f3->set('page',["title"=>"Overview", "pagetitle"=>"", "subtitle"=>""]); 
         $f3->set('template','pages/dashboard/admin.htm'); 
+        
     }
 
     public function candidate(\Base $f3, $params){

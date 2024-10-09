@@ -3,30 +3,12 @@
 
         
         <div class="card">
-            <div class="widget invert widget--items-middle">
-                <div class="widget__icon_layer widget__icon_layer--right">
-                    <span class="li-user"></span>
-                </div>
-                <div class="widget__container">
-                    <div class="widget__line">
-                        <div class="widget__icon">
-                            <span class="li-user"></span>
-                        </div>
-                        <div class="widget__title">Applicant Hunts</div>
-                        <div class="widget__subtitle">Applicant scouts by employers</div>
-                    </div>
-                    <div class="widget__box">
-                        
-                    </div>
-                    
-                </div>
-            </div>
             <div class="card-body">
                 
                 
                 <div class="table-responsive">
-                    <table class="table table-indent-rows margin-bottom-0 data-staff">
-                        <thead>
+                    <table class="table mb-0">
+                        <thead class="table-light">
                             <tr>
                                 <th width="100"><label class="form-check-label">#</label></th>
                                 <th width="200">Date</th>
@@ -38,7 +20,7 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="table-hover">
                             <repeat group="{{ @messages.data }}" key="{{@key}}" value="{{ @message }}" counter="{{@count}}">
                                 <tr>
                                     <td>{{@count}}</td>
@@ -60,7 +42,7 @@
                         </tbody>
                     </table>
                 </div>
-                <include href="includes/pagination.html" with="data={{@messages}}, url=/messaging/hunts" />
+                <include href="includes/console/pagination.htm" with="data={{@messages}}, url=/messaging/hunts" />
             </div>
         </div>
 

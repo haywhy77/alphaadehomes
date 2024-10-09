@@ -5,15 +5,16 @@
 GET / = PublicDashboard->index
 GET /about = PublicDashboard->about
 GET /services = PublicDashboard->services
-GET /contact = PublicDashboard->contact
+GET|POST /contact = PublicDashboard->contact
+
+POST /properties/ratings/@id=Property->rateProperty
 
 
-GET /get-list = PublicDashboard->getPersons
-GET /view-profile/@id = PublicDashboard->getDetail
-
+//Properties menus
+GET /properties/@category =  Property->getProperties
+GET|POST /properties/@category/@id =  Property->viewProperties
 
 POST /feedback=PublicDashboard->feedback
-POST /contact=PublicDashboard->sendContact
 POST /subscribe=PublicDashboard->sendSubscribtion
 
 //  admin login

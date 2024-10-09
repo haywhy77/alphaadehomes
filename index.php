@@ -25,9 +25,7 @@ if (!empty($preErr)) {
 
 
 if (Home::isLoggedIn()) {
-	if($f3->get('SESSION.account')=='ADMIN'){
-		$f3->config('app/routes/routes_admin.ini.php');
-	}else if($f3->get('SESSION.account')=='USER'){
+	if($f3->get('SESSION.account')=='USER'){
 		$f3->config('app/routes/routes_user.ini.php');
 	}
 	Setup::instance()->load();

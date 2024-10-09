@@ -28,8 +28,9 @@ class Setup extends \Prefab {
 			$f3->LOGS,
 			$f3->UPLOADS,
 			$f3->DOWNLOAD,
-			$f3->PASSPORT,
+			$f3->PROPERTY,
 			'app/data/',
+			$f3->get('MENU'),
 			$f3->get('ASSETS.public_path'),
 		];
 		
@@ -85,5 +86,18 @@ class Setup extends \Prefab {
 			// endif;
 		}
 		
+	}
+
+	public function write($uri, $content){
+
+		$dir=mb_substr($uri,0,-mb_strlen(strrchr($uri,"/")));
+		
+		if(!file_exists($dir)) {
+			mkdir($dir,0777);
+		}
+		$fp = fopen($uri, 'w+');
+		fwrite($fp, $content);
+		fclose($fp);
+		return true;
 	}
 }

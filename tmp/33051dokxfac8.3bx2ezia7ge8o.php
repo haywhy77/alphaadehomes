@@ -60,7 +60,7 @@
                         </tbody>
                     </table>
                 </div>
-                <?php echo $this->render('includes/pagination.html',NULL,['data'=>$messages,'url'=>'/messaging/hunts']+get_defined_vars(),0); ?>
+                <?php echo $this->render('includes/console/pagination.htm',NULL,['data'=>$messages,'url'=>'/messaging/hunts']+get_defined_vars(),0); ?>
             </div>
         </div>
 

@@ -1,0 +1,17 @@
+<!-- Bootstrap Css -->
+<link href="{{@BASE}}/ui/admin/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+<!-- Icons Css -->
+
+
+<check if="{{isset(@extra) && array_key_exists('css', @extra)}}">
+    <true>
+        <repeat group="{{ @extra.css }}" value="{{ @item }}">
+            <link href="{{@BASE}}/{{@item}}" rel="stylesheet" type="text/css"/>
+        </repeat>
+    </true>
+</check>
+
+<link href="{{@BASE}}/ui/admin/css/icons.min.css" rel="stylesheet" type="text/css" />
+<!-- App Css-->
+<link href="{{@BASE}}/ui/admin/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+<link href="{{@BASE}}/ui/admin/css/extended.css" id="app-style" rel="stylesheet" type="text/css" />
