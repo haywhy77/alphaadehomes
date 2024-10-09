@@ -36,9 +36,7 @@
                         </div>
                         <div class="blo-singl mb-4">
                             <ul class="blog-single-author-date d-sm-flex align-items-center">
-                                <li>
-                                    <span class="fas fa-user"></span><a href="#admin"> by Admin</a>
-                                </li>
+                                
                                 <li>
                                     <span class="fas fa-clock"></span> <?= ($property->created_at)."
 " ?>
@@ -173,7 +171,7 @@
         </div>
     </section>
     
-    <?php echo $this->render('public/footer.htm',NULL,get_defined_vars(),0); ?>
+    <?php echo $this->render('includes/public/footer.htm',NULL,get_defined_vars(),0); ?>
     <?php echo $this->render('includes/public/vendor-scripts.htm',NULL,get_defined_vars(),0); ?>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {

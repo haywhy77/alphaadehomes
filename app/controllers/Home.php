@@ -104,7 +104,7 @@ class Home extends Controller{
         }
     }
 
-    public function admin_login($f3,$params) {
+    public function admin_login(\BASE $f3,$params) {
         // var_dump($params);exit;
         if ($f3->exists('POST.email') && $f3->exists('POST.password')) {
             sleep(3); // login should take a while to kick-ass brute force attacks
@@ -198,7 +198,7 @@ class Home extends Controller{
         echo Template::instance()->render('auth/invitation.html');die();
     }
 
-    public function admin_reset($f3, $params) {
+    public function admin_reset(\BASE $f3, $params) {
         
         if ($f3->exists('POST.email')) {
             sleep(3); // login should take a while to kick-ass brute force attacks
@@ -236,7 +236,7 @@ class Home extends Controller{
         // $this->f3->set('template','auth/login.html');
     }
 
-    public function admin_change($f3, $params) {
+    public function admin_change(\BASE $f3, $params) {
         // var_dump($f3->get('SESSION.user_id'));exit;
         if ($f3->exists('POST.password') && $f3->exists('POST.cpassword')) {
             sleep(3); // login should take a while to kick-ass brute force attacks
@@ -280,7 +280,7 @@ class Home extends Controller{
         // $this->f3->set('template','auth/login.html');
     }
         
-    public function logout($f3,$params) {
+    public function logout(\BASE $f3,$params) {
         $uri=$f3->get('MENU')."user_".$this->f3->get('SESSION.user_id').".ini.php";
         @unlink($uri);
         $user=$f3->get('SESSION.account');
@@ -292,5 +292,12 @@ class Home extends Controller{
             $f3->reroute($f3->get('PROTOCOL').$f3->get('HOST').$f3->get('BASE').'/'.strtolower($user));
         }
         
+    }
+
+    public function Notfound(\BASE $f3,$params) {
+        $f3->set('template','auth/404.html');die();
+    }
+    public function ServerError(\BASE $f3,$params) {
+        $f3->set('template','auth/500.html');die();
     }
 }
