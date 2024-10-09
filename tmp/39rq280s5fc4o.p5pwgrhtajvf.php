@@ -2,115 +2,16 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>RealHouzing - Real Estate Category Bootstrap Responsive Template | Contact </title>
-    <!-- google fonts -->
-    <link href="//fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="<?= ($BASE) ?>/ui/frontend/css/style-liberty.css">
+    <?php echo $this->render('includes/public/title-meta.htm',NULL,get_defined_vars(),0); ?>
+
+    <?php echo $this->render('includes/public/head-css.htm',NULL,get_defined_vars(),0); ?>
 </head>
 
 <body>
-    <!--/Header-->
-    <header id="site-header" class="fixed-top">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
-                <h1><a class="navbar-brand" href="index.html">
-                        Real<span class="sub-color">Houzing</span>
-                    </a></h1>
-                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
-                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav mx-lg-auto my-2 my-lg-0 navbar-nav-scroll">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="services.html">Services</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#Pages" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Pages <span class="fa fa-angle-down ms-1"></span>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item pt-2" href="blog.html">Blog Page</a></li>
-                                <li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
-
-                                <li><a class="dropdown-item" href="email.html">Email Page</a></li>
-                                <li><a class="dropdown-item" href="elements.html">Elements</a></li>
-
-                                <li><a class="dropdown-item" href="landing.html">Landing Page</a></li>
-
-                                <li><a class="dropdown-item" href="error.html">Error Page</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                    <!--/search-->
-                    <button id="trigger-overlay" class="searchw3-icon me-xl-4 me-lg-3" type="button"><i class="fas fa-search"></i></button>
-                    <!-- open/close -->
-                    <div class="overlay overlay-slidedown">
-                        <button type="button" class="overlay-close"><i class="fas fa-times"></i></button>
-                        <nav class="w3l-formhny">
-                            <h5 class="mb-3">Search here</h5>
-                            <form action="#" method="GET" class="d-sm-flex search-header">
-                                <input class="form-control me-2" type="search" placeholder="Search here..." aria-label="Search" required>
-                                <button class="btn btn-style btn-primary" type="submit">Search</button>
-                            </form>
-                        </nav>
-                    </div>
-                    <!--//search-->
-                </div>
-                <!-- toggle switch for light and dark theme -->
-                <div class="mobile-position">
-                    <nav class="navigation">
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox">
-                                <div class="mode-container">
-                                    <i class="gg-sun"></i>
-                                    <i class="gg-moon"></i>
-                                </div>
-                            </label>
-                        </div>
-                    </nav>
-                </div>
-                <!-- //toggle switch for light and dark theme -->
-            </nav>
-        </div>
-    </header>
+    
+    <?php echo $this->render('includes/public/header.htm',NULL,get_defined_vars(),0); ?>
     <!--//Header-->
-    <!--/inner-page-->
-    <div class="inner-banner py-5">
-        <section class="w3l-breadcrumb text-left py-sm-5 ">
-            <div class="container">
-                <div class="w3breadcrumb-gids">
-                    <div class="w3breadcrumb-left text-left">
-                        <h2 class="inner-w3-title mt-sm-5 mt-4">
-                            Contact Us </h2>
-
-                    </div>
-                    <div class="w3breadcrumb-right">
-                        <ul class="breadcrumbs-custom-path">
-                            <li><a href="{{@BASE}}/">Home</a></li>
-                            <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Contact</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </div>
-    <!--//inner-page-->
+    <?php echo $this->render('includes/public/top-bar.htm',NULL,get_defined_vars(),0); ?>
     <!-- contacts-5-grid -->
     <div class="w3l-contact-10 py-5" id="contact">
         <div class="form-41-mian pt-lg-4 pt-md-3 pb-lg-4">
@@ -150,27 +51,37 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="form-inner-cont mt-5">
-                    <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
+                    <div style="margin: 0 34px">
+                        <?php foreach ((\Flash::instance()->getMessages()?:[]) as $msg): ?>
+                            <div class="alert alert-<?= ($msg['status']) ?> alert-dismissable">
+                                <?= ($msg['text'])."
+" ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    
+                    <form action="<?= ($BASE) ?>/contact" method="post" class="signin-form">
                         <div class="form-grids">
                             <div class="form-input">
-                                <input type="text" name="w3lName" id="w3lName" placeholder="Enter your name *" required="" />
+                                <input type="text" name="name" id="w3lName" placeholder="Enter your name *" required="" />
                             </div>
                             <div class="form-input">
-                                <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Enter subject " required />
+                                <input type="text" name="subject" id="w3lSubject" placeholder="Enter subject " required />
                             </div>
                             <div class="form-input">
-                                <input type="email" name="w3lSender" id="w3lSender" placeholder="Enter your email *" required />
+                                <input type="email" name="sender" id="w3lSender" placeholder="Enter your email *" required />
                             </div>
                             <div class="form-input">
-                                <input type="text" name="w3lPhone" id="w3lPhone" placeholder="Enter your Phone Number *" required />
+                                <input type="text" name="phone" id="w3lPhone" placeholder="Enter your Phone Number *" required />
                             </div>
                         </div>
                         <div class="form-input">
-                            <textarea name="w3lMessage" id="w3lMessage" placeholder="Type your query here" required=""></textarea>
+                            <textarea name="w3lMessage" id="message" placeholder="Type your query here" required=""></textarea>
                         </div>
                         <div class="w3-submit text-right">
-                            <button class="btn btn-style btn-primary">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+                            <button type="summary" class="btn btn-style btn-primary">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
                         </div>
                     </form>
                 </div>

@@ -5,7 +5,7 @@
                 <div class="row footer-hny-grids sub-columns">
                     <div class="col-lg-3 sub-one-left">
                         <h6>About </h6>
-                        <p class="footer-phny pe-lg-5">{{@business}} is your one-stop place to get affordable homes for sales, rent, and lease.</p>
+                        <p class="footer-phny pe-lg-5"><?= ($business) ?> is your one-stop place to get affordable homes for sales, rent, and lease.</p>
                         <div class="columns-2 mt-4 pt-lg-2">
                             <ul class="social">
                                 <li><a href="#facebook"><span class="fab fa-facebook-f"></span></a>
@@ -24,28 +24,28 @@
                         <h6>Company</h6>
                         <ul>
 
-                            <li><a href="{{@BASE}}/services"><i class="fas fa-angle-right"></i> Why Us</a>
+                            <li><a href="<?= ($BASE) ?>/services"><i class="fas fa-angle-right"></i> Why Us</a>
                             </li>
-                            <li><a href="{{@BASE}}/about"><i class="fas fa-angle-right"></i>Our Agents
+                            <li><a href="<?= ($BASE) ?>/about"><i class="fas fa-angle-right"></i>Our Agents
                                 </a>
                             </li>
-                            <li><a href="{{@BASE}}/properties/rent"><i class="fas fa-angle-right"></i>Our Offers
+                            <li><a href="<?= ($BASE) ?>/properties/rent"><i class="fas fa-angle-right"></i>Our Offers
                                 </a></li>
 
-                            <li><a href="{{@BASE}}/contact"><i class="fas fa-angle-right"></i> Careers</a></li>
+                            <li><a href="<?= ($BASE) ?>/contact"><i class="fas fa-angle-right"></i> Careers</a></li>
 
                         </ul>
                     </div>
                     <div class="col-lg-2 sub-two-right">
                         <h6>Services</h6>
                         <ul>
-                            <li><a href="{{@BASE}}/properties/sale"><i class="fas fa-angle-right"></i> Buy Properties</a>
+                            <li><a href="<?= ($BASE) ?>/properties/sale"><i class="fas fa-angle-right"></i> Buy Properties</a>
                             </li>
-                            <li><a href="{{@BASE}}/properties/sale"><i class="fas fa-angle-right"></i> Sell Properties</a>
+                            <li><a href="<?= ($BASE) ?>/properties/sale"><i class="fas fa-angle-right"></i> Sell Properties</a>
                             </li>
-                            <li><a href="{{@BASE}}/properties/rent"><i class="fas fa-angle-right"></i> Rent Properties</a>
+                            <li><a href="<?= ($BASE) ?>/properties/rent"><i class="fas fa-angle-right"></i> Rent Properties</a>
                             </li>
-                            <li><a href="{{@BASE}}/properties/rent"><i class="fas fa-angle-right"></i> Property Search</a>
+                            <li><a href="<?= ($BASE) ?>/properties/rent"><i class="fas fa-angle-right"></i> Property Search</a>
                             </li>
 
 
@@ -54,13 +54,13 @@
                     <div class="col-lg-2 sub-two-right">
                         <h6>Explore</h6>
                         <ul>
-                            <li><a href="{{@BASE}}/properties/rent"><i class="fas fa-angle-right"></i> Homes for Rent</a>
+                            <li><a href="<?= ($BASE) ?>/properties/rent"><i class="fas fa-angle-right"></i> Homes for Rent</a>
                             </li>
-                            <li><a href="{{@BASE}}/properties/rent"><i class="fas fa-angle-right"></i> Apartments for Rent</a>
+                            <li><a href="<?= ($BASE) ?>/properties/rent"><i class="fas fa-angle-right"></i> Apartments for Rent</a>
                             </li>
-                            <li><a href="{{@BASE}}/properties/sale"><i class="fas fa-angle-right"></i> Homes for Sale</a>
+                            <li><a href="<?= ($BASE) ?>/properties/sale"><i class="fas fa-angle-right"></i> Homes for Sale</a>
                             </li>
-                            <li><a href="{{@BASE}}/properties/sale"><i class="fas fa-angle-right"></i> Apartments for Sale</a>
+                            <li><a href="<?= ($BASE) ?>/properties/sale"><i class="fas fa-angle-right"></i> Apartments for Sale</a>
                             </li>
 
 
@@ -85,7 +85,7 @@
             <div class="below-section mt-5 pt-lg-3">
                 <div class="copyright-footer">
                     <div class="columns text-left">
-                        <p>© {{date('Y')}} {{@business}}. All rights reserved | <a href="{{@BASE}}/ui/frontend/websites-privacy-cookie-policy.pdf" target="new">Privacy Policy</a> | Powered by
+                        <p>© <?= (date('Y')) ?> <?= ($business) ?>. All rights reserved | <a href="<?= ($BASE) ?>/ui/frontend/websites-privacy-cookie-policy.pdf" target="new">Privacy Policy</a> | Powered by
                             <a href="http://icoderesources.com.ng/">iCode Resources</a></p></p>
                     </div>
                     <!-- <ul class="footer-w3list text-right">
