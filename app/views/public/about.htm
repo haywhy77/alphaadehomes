@@ -32,14 +32,14 @@
                 </div>
                 <div class="col-lg-6 align-self pe-lg-4">
                     <div class="progress-info info1">
-                        <h6 class="progress-tittle">Integrity &nbsp;&nbsp;<span class="">100%</span></h6>
+                        <h6 class="progress-tittle">Integrity<span class=""></span></h6>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width:100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
                     </div>
                     <div class="progress-info info2">
-                        <h6 class="progress-tittle">Excellence<span class="">99.9%</span>
+                        <h6 class="progress-tittle">Excellence<span class=""></span>
                         </h6>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width:99.9%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="progress-info info3">
-                        <h6 class="progress-tittle">Innovation<span class="">90%</span></h6>
+                        <h6 class="progress-tittle">Innovation<span class=""></span></h6>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
                             </div>
