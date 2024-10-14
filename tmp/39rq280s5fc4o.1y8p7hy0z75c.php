@@ -8,14 +8,15 @@
                         <p class="footer-phny pe-lg-5"><?= ($business) ?> is your one-stop place to get affordable homes for sales, rent, and lease.</p>
                         <div class="columns-2 mt-4 pt-lg-2">
                             <ul class="social">
-                                <li><a href="#facebook"><span class="fab fa-facebook-f"></span></a>
+                                <li><a href="https://www.facebook.com/profile.php?id=61565390235257&mibextid=LQQJ4d" target="_blank"><span class="fab fa-facebook-f"></span></a>
                                 </li>
-                                <li><a href="#linkedin"><span class="fab fa-linkedin-in"></span></a>
+                                <li><a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Falphaadehomes%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR0hCnU6WoSx0WZdje0DUzui9WVUV10jmXGJq3O0U1K7FqRWfBp69XiRA3A_aem_z1RHaraSrzLkV7Dhyc20GA&h=AT2Ve_r_exmN6EciscklLp7fh08g5DUzxwRh3fNbY-knLnwyFkbfj2sdftG5NuiS_1D4M29NrqWCWr1zJB90cwuyogwkEuXd_3D9RELn7yr3PYJJG0U5lYjQu16upsrj8AEV6MXFxL3aMBSyHQw9" target="_blank"><span class="fab fa-instagram"></span></a>
                                 </li>
-                                <li><a href="#twitter"><span class="fab fa-twitter"></span></a>
+                                <li><a href="#"><span class="fab fa-twitter"></span></a>
                                 </li>
-                                <li><a href="#google"><span class="fab fa-google-plus-g"></span></a>
+                                <li><a href="#"><span class="fab fa-tiktok"></span></a>
                                 </li>
+
 
                             </ul>
                         </div>
